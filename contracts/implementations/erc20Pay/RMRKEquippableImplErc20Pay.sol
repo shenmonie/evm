@@ -41,7 +41,7 @@ contract RMRKEquippableImplErc20Pay is
         RMRKMintingUtils(data.maxSupply, data.pricePerMint)
         RMRKCollectionMetadata(collectionMetadata_)
         RMRKRoyalties(data.royaltyRecipient, data.royaltyPercentageBps)
-        RMRKTokenURI(tokenURI_, data.tokenUriIsEnumerable)
+        // RMRKTokenURI(tokenURI_, data.tokenUriIsEnumerable)
         RMRKErc20Pay(data.erc20TokenAddress)
         RMRKEquippable(name_, symbol_)
     {}

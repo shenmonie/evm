@@ -25,6 +25,7 @@ task('accounts', 'Prints the list of accounts', async (taskArgs, hre) => {
 // Go to https://hardhat.org/config/ to learn more
 
 const config: HardhatUserConfig = {
+  defaultNetwork: "testnet",
   solidity: {
     version: '0.8.16',
     settings: {
@@ -35,19 +36,19 @@ const config: HardhatUserConfig = {
     },
   },
   networks: {
-    goerli: {
-      url: process.env.GOERLI_URL || '',
-      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    testnet: {
+      url: "https://polygon-mumbai.infura.io/v3/57c27c52a64641d2b0d7d008a6abc7aa",
+      accounts: ["dc7b2ac217d285128ddf229439761e43292beac9859cf023a6d5a5648cbf2eb0"],
     },
-    moonbaseAlpha: {
-      url: 'https://rpc.testnet.moonbeam.network',
-      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-    },
-    moonriver: {
-      url: 'https://rpc.api.moonriver.moonbeam.network',
-      chainId: 1285, // (hex: 0x505),
-      accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
-    },
+    // moonbaseAlpha: {
+    //   url: 'https://rpc.testnet.moonbeam.network',
+    //   accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    // },
+    // moonriver: {
+    //   url: 'https://rpc.api.moonriver.moonbeam.network',
+    //   chainId: 1285, // (hex: 0x505),
+    //   accounts: process.env.PRIVATE_KEY !== undefined ? [process.env.PRIVATE_KEY] : [],
+    // },
   },
   gasReporter: {
     enabled: process.env.REPORT_GAS !== undefined,

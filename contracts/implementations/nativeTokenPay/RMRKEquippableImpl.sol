@@ -39,7 +39,7 @@ contract RMRKEquippableImpl is RMRKAbstractEquippableImpl {
         RMRKMintingUtils(data.maxSupply, data.pricePerMint)
         RMRKCollectionMetadata(collectionMetadata_)
         RMRKRoyalties(data.royaltyRecipient, data.royaltyPercentageBps)
-        RMRKTokenURI(tokenURI_, data.tokenUriIsEnumerable)
+        // RMRKTokenURI(tokenURI_, data.tokenUriIsEnumerable)
         RMRKEquippable(name_, symbol_)
     {}
 
@@ -93,5 +93,15 @@ contract RMRKEquippableImpl is RMRKAbstractEquippableImpl {
      */
     function _charge(uint256 value) internal virtual override {
         if (value != msg.value) revert RMRKMintUnderpriced();
+    }
+
+    mapping(uint256 => string) private _uris;
+
+    function tokenURI(uint256 tokenId) public view returns (string memory) {
+        return _uris[tokenId];
+    }
+
+    function setTokenURI(uint256 tokenId, string memory url) external {
+        _uris[tokenId] = url;
     }
 }

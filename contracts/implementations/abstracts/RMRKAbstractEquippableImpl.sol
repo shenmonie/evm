@@ -23,7 +23,6 @@ abstract contract RMRKAbstractEquippableImpl is
     RMRKMintingUtils,
     RMRKCollectionMetadata,
     RMRKRoyalties,
-    RMRKTokenURI,
     RMRKEquippable
 {
     uint256 private _totalAssets;
